@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 
+		- specification JDBC : javax.sql.DataSource = DataSource
+		- spring : implementations du ds : 
+			1. DriverManagerDataSource = chaque requete - new conncetion
+			2. SingleConnectionDataSource = une seule connexion est reéutilisée
+			                                pour chaque requete et jamais fermée
+			==> implementations destinées pour les tests
+			
+		implemenatation pro : 
+		Module DBCP = Apache - BasicDataSource (conig le pool)
+	 -->
+	
+	<!-- declaration du bean du DataSource -->
+	<bean id="dataSourceBean" 
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			
+			<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+			<property name="url" value="jdbc:mysql://localhost:3306/db_test_spring"/>
+			<property name="username" value="root"/>
+			<property name="password" value="root"/>
+			
+	</bean>
+
+</beans>
