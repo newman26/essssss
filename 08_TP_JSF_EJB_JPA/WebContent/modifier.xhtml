@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Page de modification</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:breadCrumb>
+			<p:menuitem value="Accueil" url="accueil.xhtml" />
+			<p:menuitem value="Ajouter Film" url="ajout.xhtml" />
+			<p:menuitem value="Modifier Film" url="#" />
+			<p:menuitem value="Supprimer Film" url="supp.xhtml" />
+			<p:menuitem value="Rechercher Film" url="recherche.xhtml" />
+		</p:breadCrumb>
+	</h:form>
+
+	<!-- tracer la ligne horizontale -->
+	<p:separator />
+
+	<!-- Espacer les elements -->
+	<p:spacer height="20" />
+	
+		<h1 style="color: red; text-align: center">Formulaire d'ajout</h1>
+	<h:form>
+
+		<h:panelGrid columns="2">
+
+			<p:outputLabel for="idId" value="ID: " />
+			<p:inputMask id="idId" value="#{cMB.client.id}" />
+
+
+			<p:outputLabel for="nomId" value="Nom: " />
+			<p:inputMask id="nomId" value="#{cMB.client.nom}" />
+
+
+			<p:outputLabel for="prenomId" value="Prenom: " />
+			<p:inputMask id="prenomId" value="#{cMB.client.prenom}" />
+
+			<p:outputLabel for="dnId" value="Date de naissance: " />
+			<p:calendar id="dnId" value="#{cMB.client.dateNaissance}" />
+
+			<p:commandButton value="Modifier le client"
+				action="#{cMB.modifierClient}" icon="ui-icon-disk" />
+		</h:panelGrid>
+	</h:form>
+
+	<h4>
+		<h:messages style="color:red"></h:messages>
+	</h4>
+
+
+</h:body>
+</html>
